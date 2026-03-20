@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-class Account
-{
+class Account {
+
+    // Attributes
     private ?int $id;
     private ?string $firstname;
     private ?string $lastname;
@@ -11,79 +12,66 @@ class Account
     private string $password;
     private ?string $image;
 
+    // Constructor
     public function __construct(
         string $email,
         string $password
-    )
-    {
+    ) {
         $this->email = $email;
         $this->password = $password;
     }
 
-
-    public function getId(): ?int
-    {
+    // Getters & Setters
+    public function getId(): ?int {
         return $this->id;
     }
 
-    public function setId(?int $id): void 
-    {
+    public function setId(?int $id): void {
         $this->id = $id;
     }
 
-    public function getFirstname(): ?string
-    {
+    public function getFirstname(): ?string {
         return $this->firstname;
     }
 
-    public function setFirstname(?string $firstname): void 
-    {
+    public function setFirstname(?string $firstname): void {
         $this->firstname = $firstname;
     }
 
-    public function getLastname(): ?string
-    {
+    public function getLastname(): ?string {
         return $this->lastname;
     }
 
-    public function setLastname(?string $lastname): void 
-    {
+    public function setLastname(?string $lastname): void {
         $this->lastname = $lastname;
     }
 
-    public function getEmail(): string
-    {
+    public function getEmail(): string {
         return $this->email;
     }
 
-    public function setEmail(string $email): void 
-    {
+    public function setEmail(string $email): void {
         $this->email = $email;
     }
 
-    public function getPassword(): string
-    {
+    public function getPassword(): string {
         return $this->password;
     }
 
-    public function setPassword(string $password): void 
-    {
+    public function setPassword(string $password): void {
         $this->password = $password;
     }
 
-    public function getImage(): ?string
-    {
+    public function getImage(): ?string {
         return $this->image;
     }
 
-    public function setImage(?string $image): void 
-    {
+    public function setImage(?string $image): void {
         $this->image = $image;
     }
 
-    //Méthodes
-    public function __toString(): string
-    {
+    // Methods
+    public function __toString(): string {
         return $this->firstname . ", " . $this->lastname;
     }
     
@@ -91,8 +79,7 @@ class Account
      * Méthode pour hasher le password en Bycript
      * @return void
      */
-    public function hashPassword(): void
-    {
+    public function hashPassword(): void {
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
     }
 
@@ -101,8 +88,7 @@ class Account
      * @param string $plainPassword mot de passe en clair
      * @return bool true si valide false si invalide
      */
-    public function verifyPassword(string $plainPassword): bool 
-    {
+    public function verifyPassword(string $plainPassword): bool {
         return password_verify($plainPassword, $this->password);
     }
 }

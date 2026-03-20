@@ -1,23 +1,25 @@
 <?php
 
 include '../vendor/autoload.php';
-//Charger les variables d'environnement
+
+// Charger les variables d'environnement
 $dotenv = Dotenv\Dotenv::createImmutable("../");
 $dotenv->load();
 
-//Récupération de l'URL
+// Récupération de l'URL
 $url = parse_url($_SERVER['REQUEST_URI']);
-//test soit l'url a une route sinon on renvoi à la racine
+// Test si l'URL a une route, sinon on renvoi à la racine
 $path = isset($url['path']) ? $url['path'] : '/';
 
-//Importer les controllers
+// Importer les controllers
 use App\Controller\HomeController;
 use App\Controller\CategoryController;
 
-//instancier les controllers
+// Instancier les controllers
 $homeController = new HomeController();
 $categoryController = new CategoryController();
-//Routeur (test)
+
+// Routeur (test)
 switch ($path) {
     case '/':
         $homeController->index();
