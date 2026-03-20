@@ -1,8 +1,8 @@
-#Activation du rewrite des URL
+# Activation du rewrite des URL
 RewriteEngine On
-#base du projet (emplacement à partir de la racine du serveur)
+# Base du projet (emplacement à partir de la racine du serveur)
 RewriteBase /
-#si ce n'est pas un répertoire
+# Si ce n'est pas un répertoire
 RewriteCond %{REQUEST_FILENAME} !-d
 # Si ce n'est pas un fichier
 RewriteCond %{REQUEST_FILENAME} !-f
