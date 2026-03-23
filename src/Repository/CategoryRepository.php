@@ -28,7 +28,7 @@ class CategoryRepository {
             $req->execute();
             // 5) Récupérer l'ID
             $id = $this->connect->lastInsertId();
-            // Setter l'id
+            // 6) Setter l'id
             $category->setId($id);
         } catch(\PDOException $e) {}
         return $category;

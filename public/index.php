@@ -24,11 +24,11 @@ switch ($path) {
     case '/':
         $homeController->index();
         break;
-    case '/category/new':
-        $categoryController->createCategory();
-        break;
     case '/category/all':
         $categoryController->showAllCategory();
+        break;
+    case '/category/new':
+        $categoryController->createCategory();
         break;
     default:
         echo "404 la page n'existe pas";
